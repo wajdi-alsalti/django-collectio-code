@@ -21,7 +21,8 @@ class UserForm(forms.ModelForm):
         fields = ['username','first_name','last_name','email']
 
 class ProfileForm(forms.ModelForm):
-    # image = forms.ImageField(widget=forms.FileInput,)
+    # hide the image link from the form
+    image = forms.ImageField(widget=forms.FileInput,)
     class Meta:
         # from Profile class
         model = Profile

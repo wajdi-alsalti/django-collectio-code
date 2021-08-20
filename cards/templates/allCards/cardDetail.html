@@ -15,6 +15,14 @@
         <div class="writer">
             {{writer}}
             {{date}}
+
+            <!-- if the name of the publish blog is same of the user show edit link -->
+            {% if writer == user.username %}
+            <!-- pass sluge parameters to editCard  -->
+            <p> <a href="{% url 'cardsShow:editCard' sluge  %}">Edit</a> </p>
+            {% else %}
+            <span></span>
+            {% endif %}
         </div>
     </div>
     <div class="description">

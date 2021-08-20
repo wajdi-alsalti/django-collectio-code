@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from . models import Cards
 from django.core.paginator import Paginator
-from .form import AddCode
+from .form import AddCode,EditCode
 from django.urls import reverse
 
 
@@ -44,6 +44,9 @@ def singelCard(request,slug):
     writer = card.owner
     categoryImage = category.image
 
+    # use sluge to be argument to editCard path to link the same blog 
+    sluge = card.slug
+
     
     # the class name is language-css (example) so we take the name from catgorey and pass in languageStyle
     # and render in html then the code colored in the blog cause we use prism.css 
@@ -58,7 +61,8 @@ def singelCard(request,slug):
             'lType':languageStyle,
             'code':code,
             'date':date,
-            'writer':writer
+            'writer':writer,
+            'sluge':sluge
             }
 
     return render(request,'allCards/cardDetail.html', context)
@@ -135,3 +139,20 @@ def addNewCode(request):
         form = AddCode()
 
     return render(request,'allCards/addCode.html',{'form':form})
+
+# editing the description and the code block
+def editCard(request,slug):
+    edit = None
+    card = Cards.objects.get(slug=slug)
+    if request.method == 'POST':
+        edit = EditCode(request.POST, instance=card)
+        if edit.is_valid():
+            editForm = edit.save(commit=False)
+            editForm.user = request.user
+            editForm.save()
+            # pass the argument like this slug=slug to return to the same page after edit
+            # because cardDetail need argument and is the slug 
+            return redirect('cardsShow:cardDetail', slug=slug)
+    else:
+        edit = EditCode(instance=card)
+    return render(request,'allCards/edit_card.html',{'form':edit})

@@ -8,3 +8,10 @@ class AddCode(forms.ModelForm):
         model = Cards
         fields = '__all__'
         exclude = ('code','owner','slug','language_type','image')
+
+
+class EditCode(forms.ModelForm):
+    """ edit the code """
+    class Meta:
+        model = Cards
+        fields = ['description','code_blog']

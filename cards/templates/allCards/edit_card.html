@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Edit Code</title>
+{% endblock title %}
+
+{% load bootstrap5 %}
+
+{% block body %}
+<article id="rightSide">
+    <div class="leftItem">
+        <form action="#" method="POST" class="form" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary w-100" >Edit Code</button>
+            {% endbuttons %}
+        </form>
+        </div>
+</article>
+
+{% endblock body %}
