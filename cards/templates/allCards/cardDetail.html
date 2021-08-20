@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>{{ cardTitle }}</title>
+{% endblock title %}
+
+{% block pageImg %}
+<!-- do not forget .url for image in django -->
+    <link rel="icon" href="{{ cardImage.url }}">
+{% endblock pageImg %}
+
+{% block body %}
+<section class="cards">
+    <div class="headerDetail">
+        {{ header }}
+        <div class="writer">
+            {{writer}}
+            {{date}}
+        </div>
+    </div>
+    <div class="description">
+        {{ description }}
+    </div>
+    <!-- do not make any space between cause will format the text in funny way -->
+    <div class="code_blog">
+        <pre><code class="{{ lType }}">{{ code }}</code></pre>
+    </div>
+</section>
+
+{% endblock body %}

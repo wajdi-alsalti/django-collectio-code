@@ -1,0 +1,367 @@
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* height: 100%; */
+    background-color: #203647;
+    color: #EEFBFB;
+    font-family: 'Gowun Batang', serif; 
+    font-size: 20px;
+}
+
+html, body {
+    height: 100%;
+}
+/* nav bar start */
+#topNav{
+    background-color: #007CC7;
+    /* text-align: center; */
+    /* border: 2px solid black; */
+    width: 99%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 150px;
+}
+
+#topNav #homeList {
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+}
+
+#topNav #homeList li {
+    /* remove the dote on lift side */
+    list-style: none;
+    padding-left: 50px;
+    margin-right: 20px;
+    margin-top: 55px;
+}
+
+#topNav #login{
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    margin-right: 35px;
+    margin-top: 30px;
+}
+
+#topNav #login li{
+    list-style: none;
+    margin-left: 25px;
+}
+
+#login li a img{
+    width: 70px;
+    position: relative;
+    right: 30px;
+    bottom: 5px;
+}
+
+#topNav #login #loginClick{
+    background-color: #4DA8DA;
+    border-radius: 5px;
+    width: 75px;
+    height: 35px;
+    border: none;
+    color: #EEFBFB;
+    font-family: 'Gowun Batang', serif;
+
+}
+
+#topNav #login #loginClick:active{
+    background-color: #007CC7;
+}
+
+#topNav ul li a{
+    text-decoration: none;
+    color: #EEFBFB;
+}
+
+/* tob nav bar end */
+
+/* main Section */
+.mainSection{
+    /* border: 2px solid red; */
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 99%;
+    min-height: 635px;
+}
+
+#leftSide{
+    flex: 1;
+    /* border: 1px solid yellow; */
+    /* border-radius: 0 25px 25px 0; */
+    background-color: rgba(128, 128, 128, 0.212);
+    display: flex;
+    align-items: center;
+
+}
+
+/* left nav */
+/* #leftNav{
+    margin-top: 15px;
+    text-align: left;
+    border: 2px solid;
+    
+} */
+#leftNav ul li i{
+    font-size: 40px;
+}
+
+#leftNav ul li{
+    list-style: none;
+    padding-bottom: 70px;
+}
+#leftNav ul li a{
+    text-decoration: none;
+    color: #EEFBFB;
+    padding-left: 25px;
+    font-size: 25px;
+}
+#leftNav #dj{
+    width: 40px;
+}
+#leftNav ul{
+    padding-left: 30px;
+}
+
+/* end left nav */
+
+
+#rightSide{
+    /* border: 1px solid salmon; */
+    flex: 6;
+    text-align: center;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* for profile_edit.html */
+.rightSection{
+    flex: 6;
+}
+
+#searchBar form{
+    /* border: 1px solid gray; */
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+#searchBar{
+    margin-top: 5%;
+}
+
+#searchBar form input,#searchBar form label{
+    margin-bottom: 25px;
+}
+
+#searchBar form #text1{
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+#searchBtn{
+    width: 50%;
+    height: 35px;
+    background-color: #4DA8DA;
+    border: .5px solid gray ;
+    border-radius: 5px;
+    color: #EEFBFB;
+    font-size: 25px;
+    font-family: 'Gowun Batang', serif;
+    padding-bottom: 37px;
+}
+
+#searchBtn:active{
+    background-color: #007CC7;
+}
+#searchIcon{
+    position: relative;
+    bottom: 55px;
+    right: 55px;
+}
+/* cards property */
+.cards{
+    width: 80%;
+    margin-bottom: 25px;
+}
+.card{
+    /* border: 2px solid; */
+    background: linear-gradient(to left top ,rgba(255,255,255,0.5),rgba(255,255,255,0.3));
+    height: 150px;
+    position: relative;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 3px 2px 7px;
+}
+
+.card #imgCard{
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+
+.cardSubject{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 15px;
+    text-align: left;
+    padding-left: 20%;
+    /* border: 2px solid; */
+}
+
+.cardSubject a{
+    text-decoration: none;
+    color: white;
+    /* border: 2px solid; */
+}
+
+.cardDescription p{
+    font-size: 15px;
+    margin-top: 5px;
+    /* border: 2px solid; */
+    text-align: left;
+    padding-left: 20%;
+    overflow: auto;
+    
+}
+
+.cardDescription{
+    overflow: auto;
+}
+/* end cards */
+
+/* writer name and date for card.html */
+.codeWriter{
+    font-size: 15px;
+    text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+/* end  */
+
+/* writer name and date for cardDetail.html */
+.writer{
+    position: absolute;
+    font-size: 15px;
+    right: 15px;
+    top: 5px;
+}
+
+
+/* footer start */
+footer{
+    clear: both;
+    content: "";
+    display: block;
+    background-color: #007CC7;
+    text-align: center;
+    /* border: 2px solid black; */
+    width: 99%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 150px;
+    padding-top: 50px;
+}
+/* end footer */
+
+.leftItem{
+    text-align: left;
+    width: 50%;
+}
+/* this style for cardDetail.html page to show the information */
+.headerDetail{
+    padding-top: 25px;
+    padding-left: 45px;
+    font-size: 50px;
+    /* border: 2px solid; */
+    position: relative;
+}
+
+.description{
+    padding-left: 50px;
+    margin-top: 15px;
+    margin-bottom: 35px ;
+}
+
+.code_blog{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    height: 450px;
+    overflow: auto;
+}
+
+.profileEdit{
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+}
+
+/* scroll bar */
+::-webkit-scrollbar{
+    width: 2px;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* end scroll bar */
+
+@media only screen and (max-width: 992px) {
+    #leftSide{
+        width: 18%;
+    }
+    #leftNav ul li i{
+        font-size: 25px;
+    }
+
+    #leftNav ul li{
+        list-style: none;
+        padding-bottom: 75px;
+    }
+
+    #leftNav ul li a{
+        padding-left: 5px;
+        font-size: 20px;
+    }
+    #leftNav #dj{
+        width: 20px;
+    }
+
+    #leftNav ul{
+        padding-left: 20px;
+    }
+
+    /* .mainSection{
+        height: 630px;
+    } */
+    #topNav #login{
+        position: absolute;
+        right: 0px;
+        top: 25px;
+    }
+
+}

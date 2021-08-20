@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block body %}
+
+
+<article class="rightSection">
+    <div class="profileEdit">
+        <h4>Edit Profile</h4>
+        <!-- without enctype='multipart/form-data' the image dose not upload -->
+        <form action="" method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {% bootstrap_form userform %}
+            {% bootstrap_form profileForm %}
+            <!-- center btn  -->
+            <div class="col text-center">
+                {% buttons %}
+                <!-- width w-50 is 50% -->
+                <button type="submit" class="btn btn-primary w-50">Save</button>
+            {% endbuttons %}
+            </div>
+        </form>
+    </article>
+    </div>
+
+{% endblock body %}  

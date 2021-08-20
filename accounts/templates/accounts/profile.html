@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+
+{% block body %}
+    <article id="rightSide">
+        <ul>
+            <h3>Name: <span>{{profile}}</span></h3>
+            <h3>Email: <span>{{profile.user.email}}</span></h3>
+            <h3>Phone: <span> {{profile.phone_number}}</span></h3>
+        </ul>
+        <div class="p-5">
+            <a class="boxed-btn3 w-100" href="{% url 'account:profileEdit' %}">Edit Profile</a>
+        </div>
+    </article>
+{% endblock body %}  

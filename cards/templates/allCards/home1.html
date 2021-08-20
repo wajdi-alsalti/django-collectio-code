@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <article id="rightSide">
+        <section id="subject">
+            <h1>Search or Add CODE</h1>
+        </section>
+        <section id="mainLetter">
+            <p>This page is about to make your work easy just search what you want 
+                in which program language you need 
+            </p>
+        </section>
+        <section id="searchBar">
+            <form method="get">
+                <label for="text1" id="labelName">Search Subject Code : </label>
+                <input id="text1" type="text" name="text1">
+                <input type="button" value="Search" id="searchBtn">
+                <i class="fas fa-search" id="searchIcon"></i>
+            </form>
+        </section>
+    </article>
+
+{% endblock body %}

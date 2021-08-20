@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- add bootstrap link first because if we added after your style bootstrap will over write ur style -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- css for codeText coloring extra file -->
+    <link href="{% static 'css/prism.css' %}" rel="stylesheet" />
+
+    <!-- css my style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- link font awesome -->
+    <link rel="stylesheet" href="{% static 'fontAwesome/fontawesome-free-5.15.4-web/css/all.css' %}">
+
+    <!-- link to google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="'https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=STIX+Two+Text&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="{% static 'images/dj.png' %}">
+    {% block pageImg %}
+    {% endblock pageImg %}
+
+    {% block title %}
+        <title>Collections Code</title>
+    {% endblock title %}
+</head>
+<body>
+    <header id="head">
+        <nav id="topNav">
+<!-- top nav bar left side -->
+            <ul id="homeList">
+                <li> <a href="{% url 'home:homePage' %}">Home</a> </li>
+                <li> <a href="{% url 'cardsShow:allCards' %}">Browse Code</a> </li>
+
+                {% if user.is_authenticated %}
+                <!-- if block show link add code if user logged in -->
+                <li> <a href="{% url 'cardsShow:addCode' %}">Add Code</a> </li>
+                <li> <a href="{% url 'cardsShow:userCards' %}">Your Code</a> </li>
+                {% else %}
+                <!-- if block show link add code if user logged out -->
+                <li><a href="{% url 'account:signup' %}">Sign Up</a></li>
+                {% endif %}
+
+            </ul>
+<!-- end left side from top nav -->
+
+<!-- top nav right side -->
+            <ul id="login">
+                {% if user.is_authenticated %}
+                <!-- if block show user image if user logged in -->
+                <li> <a href="{% url 'account:profile' %}"> <img src="{{ user.profile.image.url }}" alt="img"> </a></li>
+                {% else %}
+                <!-- if block show default user image if user logged out -->
+                <li> <a href=""> <img src="{% static 'default/defaultImg.png' %}" alt="img"> </a></li>
+                {% endif %}
+                    
+                <form action="">
+                    <!-- is authenticated it is main that user is already login -->
+                    {% if user.is_authenticated %}
+                    <!-- change button function if user is logged in will show logout and the url to logout -->
+                    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <!-- change button function if user is logged out will show login and the url to login -->
+                    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                        
+                    <!-- <input id="loginClick" type="button" value="Login" > -->
+                    <div>
+                        {% if user.is_authenticated %}
+                        <!-- if user logged in show the user name -->
+                            <p>Hi {{ user.first_name }} </p>
+                        {% else %}
+                        <!-- logged out user name is User -->
+                        <p>Hi User </p>
+                        {% endif %}
+                    </div>
+                </form>
+            </ul>
+        </nav>
+<!-- top nav right side end -->
+    </header>
+<!-- end header -->
+
+
+    <section class="mainSection">
+        <article id="leftSide">
+<!-- start left nav bar -->
+            <nav id="leftNav">
+                <ul>
+                    <li><i class="fab fa-python"></i> <a href="{% url 'cardsShow:pythonList' %}"> Python</a> </li>
+                    <li>
+                        <img src="{% static 'images/dj.png' %}" alt="dj" id="dj"> 
+                        <a href="{% url 'cardsShow:djangoList' %}">Django </a>
+                    </li>
+                    <li> <i class="fab fa-js-square"></i><a href="{% url 'cardsShow:jscriptList' %}"> JScript </a></li>
+                    <li><i class="fab fa-html5"></i><a href="{% url 'cardsShow:htmlList' %}"> HTML </a></li>
+                    <li> <i class="fab fa-css3-alt"></i><a href="{% url 'cardsShow:cssList' %}"> CSS </a></li>
+                </ul>
+            </nav>
+<!-- end left nav bar -->
+        </article>
+        
+<!--     start the block that will inhirate for the pages -->
+    {% block body %}
+
+    
+    {% endblock body %}
+    
+    </section>
+
+<!-- footer start -->
+    <footer>
+        Do not give Up Some Day you will Be some One &#x1F609	
+    </footer>
+
+    <!-- end footer -->
+
+    <!-- javascript for code coloring extra file -->
+    <script src="{% static 'jscript/prism.js' %}"></script>
+</body>
+</html>

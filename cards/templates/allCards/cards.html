@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Browse Code</title>
+{% endblock title %}
+
+{% block pageImg %}
+<!-- do not forget .url for image in django -->
+    <link rel="icon" href="{{ Image.url }}">
+{% endblock pageImg %}
+
+<!-- {% load bootstrap5 %} -->
+
+{% block body %}
+<article id="rightSide">
+    <section class="cards">
+        {% for card in page_obj.object_list %}
+            <article class="card">
+                    <div id="imgCard">
+                        <img src="{{card.image.url}}" alt="">
+                    </div>
+                    <div class="codeWriter">
+                        {{card.owner}}
+                        <!-- {{user.first_name}} -->
+                        {{card.publish_at}}
+                    </div>
+                    <div class="cardSubject">
+                        <a href="{% url 'cardsShow:cardDetail' card.slug %}"> {{card.header}} </a>
+                    </div>
+                    <div class="cardDescription">
+                        <p>
+                            {{card.description}}
+                        </p>
+                    </div>
+                    
+            </article> 
+        {% endfor %}
+    </section>
+    <!-- paginator setting -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            {% if page_obj.has_other_pages %}
+                <!-- if page have a previous page show the arrow -->
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}">&laquo;</a></li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a>
+                </li>
+                {% endif %}
+                
+                    
+                {% for i in page_obj.paginator.page_range %}
+                    <li class="page-item"><a class="page-link" href="?page={{i}}"><span>{{i}}</span></a></li>
+                {% endfor %}
+                
+                <!-- if page have a next page show the arrow -->
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">&raquo;</a></li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;</a>
+                </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+    </nav>
+</article>
+{% endblock body %}
