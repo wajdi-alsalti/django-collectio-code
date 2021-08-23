@@ -99,6 +99,31 @@ html, body {
 
 }
 
+/* search bar in top nav */
+.searchFormMain{
+    /* padding-top: 65px; */
+    position: absolute;
+    top: 55px;
+    left: 50%;
+}
+
+.searchFormMain #text1{
+    outline: none;
+    border-radius: 5px;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.searchFormMain button{
+    padding: 0px;
+    height: 38px;
+    position: absolute;
+    top: 0px;
+    width: 70px;
+    font-size: 22px;
+    border-radius: 0px 5px 5px 0px;
+}
 /* left nav */
 /* #leftNav{
     margin-top: 15px;
@@ -164,13 +189,13 @@ html, body {
 
 #searchBar form #text1{
     width: 100%;
-    height: 35px;
+    height: 45px;
     outline: none;
     border-radius: 5px;
     font-size: 24px;
 }
 
-#searchBtn{
+/* #searchBtn{
     width: 50%;
     height: 35px;
     background-color: #4DA8DA;
@@ -184,16 +209,21 @@ html, body {
 
 #searchBtn:active{
     background-color: #007CC7;
+} */
+
+#searchBar button{
+    font-size: 25px;
 }
 #searchIcon{
     position: relative;
-    bottom: 55px;
-    right: 55px;
+    bottom: -38px;
+    right: 70px;
 }
 /* cards property */
 .cards{
     width: 80%;
     margin-bottom: 25px;
+    /* border: 2px solid; */
 }
 .card{
     /* border: 2px solid; */
@@ -203,6 +233,11 @@ html, body {
     margin-bottom: 25px;
     border-radius: 8px;
     box-shadow: 3px 2px 7px;
+    transition: all .5s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.05);
 }
 
 .card #imgCard{

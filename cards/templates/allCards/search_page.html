@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Search Result </title>
+{% endblock title %}
+
+{% block pageImg %}
+<!-- do not forget .url for image in django -->
+    <link rel="icon" href="{{ Image.url }}">
+{% endblock pageImg %}
+
+<!-- {% load bootstrap5 %} -->
+
+{% block body %}
+<article id="rightSide">
+    <section class="cards">
+        
+        {% if query %}
+            {% for card in result %}
+                <article class="card">
+                        <div id="imgCard">
+                            <img src="{{card.image.url}}" alt="">
+                        </div>
+                        <div class="codeWriter">
+                            {{card.owner}}
+                            <!-- {{user.first_name}} -->
+                            {{card.publish_at}}
+                        </div>
+                        <div class="cardSubject">
+                            <a href="{% url 'cardsShow:cardDetail' card.slug %}"> {{card.header}} </a>
+                        </div>
+                        <div class="cardDescription">
+                            <p>
+                                {{card.description}}
+                            </p>
+                        </div>
+                        
+                    </article> 
+            {% empty %}
+                <h4>There is no results</h4>
+                <p>search in another way</p>
+            {% endfor %}
+        {% else %}
+            <h4>dd</h4>
+        {% endif %}
+            
+    </section>
+{% endblock body %}

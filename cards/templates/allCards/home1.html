@@ -11,11 +11,12 @@
             </p>
         </section>
         <section id="searchBar">
-            <form method="get">
+            <!-- the button will redirect to search page  -->
+            <form method="GET" action="{% url 'cardsShow:search' %}">
                 <label for="text1" id="labelName">Search Subject Code : </label>
-                <input id="text1" type="text" name="text1">
-                <input type="button" value="Search" id="searchBtn">
+                <input id="text1" type="text" name="search">
                 <i class="fas fa-search" id="searchIcon"></i>
+                <button type="submit" class="btn btn-primary w-100" >Search</button>
             </form>
         </section>
     </article>

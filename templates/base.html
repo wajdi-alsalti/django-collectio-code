@@ -49,6 +49,11 @@
                 {% endif %}
 
             </ul>
+            <!-- search form in top nav -->
+            <form class="searchFormMain" action="{% url 'cardsShow:search' %}" method="get">
+                <input id="text1" type="text" name="search" placeholder=" Search">
+                <button type="submit" class="btn btn-secondary" >Search</button>
+            </form>
 <!-- end left side from top nav -->
 
 <!-- top nav right side -->
@@ -60,7 +65,6 @@
                 <!-- if block show default user image if user logged out -->
                 <li> <a href=""> <img src="{% static 'default/defaultImg.png' %}" alt="img"> </a></li>
                 {% endif %}
-                    
                 <form action="">
                     <!-- is authenticated it is main that user is already login -->
                     {% if user.is_authenticated %}
@@ -81,7 +85,7 @@
                         <p>Hi User </p>
                         {% endif %}
                     </div>
-                </form>
+                </form>          
             </ul>
         </nav>
 <!-- top nav right side end -->

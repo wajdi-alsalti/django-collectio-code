@@ -23,5 +23,6 @@ urlpatterns = [
     path('your-add',views.userCard,name='userCards'),
     path('<str:slug>',views.singelCard,name='cardDetail'),
     path('edit-card/<str:slug>',views.editCard,name='editCard'),
+    path('search-result/',views.search,name='search'),
 ]
 

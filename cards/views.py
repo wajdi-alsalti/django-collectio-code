@@ -3,6 +3,8 @@ from . models import Cards
 from django.core.paginator import Paginator
 from .form import AddCode,EditCode
 from django.urls import reverse
+from .filters import CardFilter
+from django.db.models.query_utils import Q
 
 
 # Create your views here.
@@ -14,9 +16,8 @@ def allCards(request):
     paginator = Paginator(all_cards, 3) # Show 1 contacts per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    print(request.user.username)
     context = {'allCard':all_cards,
-                'page_obj':page_obj
+                'page_obj':page_obj,
                 }
 
     return render(request,'allCards/cards.html',context)
@@ -62,7 +63,7 @@ def singelCard(request,slug):
             'code':code,
             'date':date,
             'writer':writer,
-            'sluge':sluge
+            'sluge':sluge,
             }
 
     return render(request,'allCards/cardDetail.html', context)
@@ -107,6 +108,17 @@ def cssList(request):
 # render the home page cause have another section it is not include in another pages
 def homePage(request):
     return render(request,'allCards/home1.html',{})
+
+# to search the cards that contain the words in input field search
+def search(request):
+    # request from the search field in home page or search bar from base
+    if request.method == 'GET':
+        # this will get the name of the input we named search in base.html and home.html and will look for this name
+        query = request.GET.get('search')
+        # filter the cards that header and description contin the text from the input
+        result = Cards.objects.filter(Q(header__icontains=query) | Q(description__icontains=query))
+
+    return render(request,'allCards/search_page.html',{'query':query,'result':result})
 
 """
     we can use user User class built in django and all attribute in the html files

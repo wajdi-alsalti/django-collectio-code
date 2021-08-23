@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cards',
     'home',
     "bootstrap5",
+    'django_filters',
 ]
 
 MIDDLEWARE = [
